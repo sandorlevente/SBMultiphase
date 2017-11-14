@@ -28,3 +28,6 @@
 *.app
 
 .DS*
+
+/DTCHull/constant/polymesh
+/floatingObject/constant/polymesh
