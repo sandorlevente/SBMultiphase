@@ -6,10 +6,8 @@ cd ${0%/*} || exit 1    # Run from this directory
 
 ./Allrun.pre
 
-runApplication decomposePar
-
+runApplication decomposePar -force
 runParallel $(getApplication)
-
-runApplication reconstructPar
+runApplication reconstructPar -noFunctionObjects
 
 #------------------------------------------------------------------------------

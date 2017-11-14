@@ -9,21 +9,41 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    object      decomposeParDict;
+    class       volScalarField;
+    object      epsilon;
 }
-
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-numberOfSubdomains 4;
+dimensions      [0 2 -3 0 0 0 0];
 
-method          hierarchical;
+internalField   uniform 7e-3;
 
-hierarchicalCoeffs
+boundaryField
 {
-    n               (1 4 1);
-    delta           0.001;
-    order           xyz;
+    ".*"
+    {
+        type            epsilonWallFunction;
+        value           $internalField;
+    }
+
+    gasInlet
+    {
+        type            fixedValue;
+        value           $internalField;
+    }
+
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      $internalField;
+        value           $internalField;
+    }
+
+    "AMI.*"
+    {
+        type            cyclicAMI;
+        value           $internalField;
+    }
 }
 
 

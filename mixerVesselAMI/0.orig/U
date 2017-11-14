@@ -8,35 +8,54 @@
 FoamFile
 {
     version     2.0;
-    format      ascii;
-    class       volScalarField;
-    location    "0";
-    object      p_rgh;
+    format      binary;
+    class       volVectorField;
+    object      U;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [1 -1 -2 0 0];
+dimensions      [0 1 -1 0 0 0 0];
 
-internalField   uniform 1e5;
+internalField   uniform (0 0 0);
 
 boundaryField
 {
-    #includeEtc "caseDicts/setConstraintTypes"
-
-    inlet
+    ".*"
     {
-        type            fixedFluxPressure;
+        type           fixedValue;
+        value          $internalField;
+    }
+
+    gasInlet
+    {
+        type           fixedValue;
+        value          uniform (0 0 0.5);
     }
 
     outlet
     {
-        type            totalPressure;
-        p0              $internalField;
+        type            pressureInletOutletVelocity;
+        value           $internalField;
     }
 
-    wall
+    "(shaftRotating|stirrer)"
     {
-        type            fixedFluxPressure;
+        type            movingWallVelocity;
+        value           $internalField;
+    }
+
+    shaft
+    {
+        type            rotatingWallVelocity;
+        origin          (0 0 0);
+        axis            (0 0 1);
+        omega           -5;
+    }
+
+    "AMI.*"
+    {
+        type            cyclicAMI;
+        value           $internalField;
     }
 }
 

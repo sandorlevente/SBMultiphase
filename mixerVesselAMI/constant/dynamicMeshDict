@@ -9,39 +9,25 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    location    "0";
-    object      epsilon;
+    class       dictionary;
+    location    "constant";
+    object      dynamicMeshDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -3 0 0 0 0];
+dynamicFvMesh   dynamicMotionSolverFvMesh;
 
-internalField   uniform 0.0495;
+motionSolverLibs ( "libfvMotionSolvers.so" );
 
-boundaryField
-{
-    #includeEtc "caseDicts/setConstraintTypes"
+motionSolver    solidBody;
 
-    inlet
-    {
-        type            fixedValue;
-        value           $internalField;
-    }
+cellZone        rotating;
 
-    outlet
-    {
-        type            inletOutlet;
-        inletValue      $internalField;
-        value           $internalField;
-    }
+solidBodyMotionFunction  rotatingMotion;
 
-    wall
-    {
-        type            epsilonWallFunction;
-        value           $internalField;
-    }
-}
+origin        (0 0 0);
+axis          (0 0 1);
+omega         -5; // 5 rad/s
 
 
 // ************************************************************************* //

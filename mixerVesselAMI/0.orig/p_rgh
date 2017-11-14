@@ -9,50 +9,33 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    location    "system";
-    object      fvSchemes;
+    class       volScalarField;
+    object      p_rgh;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-ddtSchemes
+dimensions       [1 -1 -2 0 0 0 0];
+
+internalField   uniform 1.25e5;
+
+boundaryField
 {
-    default         Euler;
+    ".*"
+    {
+        type            fixedFluxPressure;
+    }
+
+    outlet
+    {
+        type            fixedValue;
+        value           $internalField;
+    }
+
+    "AMI.*"
+    {
+        type            cyclicAMI;
+        value           $internalField;
+    }
 }
-
-gradSchemes
-{
-    default         Gauss linear;
-    grad(U)         cellLimited Gauss linear 1;
-}
-
-divSchemes
-{
-    default             none;
-
-    div(phi,alpha)      Gauss vanLeer;
-    div(phirb,alpha)    Gauss linear;
-    div(rhoPhi,U)       Gauss linearUpwind grad(U);
-    div(phi,k)          Gauss upwind;
-    div(phi,epsilon)    Gauss upwind;
-
-    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
-}
-
-laplacianSchemes
-{
-    default         Gauss linear limited corrected 0.33;
-}
-
-interpolationSchemes
-{
-    default         linear;
-}
-
-snGradSchemes
-{
-    default         limited corrected 0.33;
-}
-
 
 // ************************************************************************* //

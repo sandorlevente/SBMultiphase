@@ -9,14 +9,39 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       uniformDimensionedVectorField;
-    location    "constant";
-    object      g;
+    class       volScalarField;
+    object      alpha.water;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 1 -2 0 0 0 0];
-value           (0 0 0);
+dimensions      [0 0 0 0 0 0 0];
 
+internalField   uniform 0;
+
+boundaryField
+{
+    ".*"
+    {
+        type            zeroGradient;
+    }
+
+    gasInlet
+    {
+        type            fixedValue;
+        value           uniform 1;
+    }
+
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform 0;
+        value           $internalField;
+    }
+
+    "AMI.*"
+    {
+        type            cyclicAMI;
+    }
+}
 
 // ************************************************************************* //

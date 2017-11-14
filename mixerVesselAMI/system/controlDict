@@ -15,7 +15,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     interPhaseChangeDyMFoam;
+application     interDyMFoam;
 
 startFrom       startTime;
 
@@ -23,13 +23,13 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         0.1;
+endTime         5.0;
 
-deltaT          1e-5;
+deltaT          1e-4;
 
 writeControl    adjustableRunTime;
 
-writeInterval   0.001;
+writeInterval   0.025;
 
 purgeWrite      0;
 
@@ -41,13 +41,16 @@ writeCompression off;
 
 timeFormat      general;
 
-timePrecision   6;
+timePrecision   10;
 
-runTimeModifiable true;
+runTimeModifiable yes;
 
 adjustTimeStep  yes;
 
-maxCo           2;
+maxCo           1.5;
+
 maxAlphaCo      1;
+
+maxDeltaT       1;
 
 // ************************************************************************* //

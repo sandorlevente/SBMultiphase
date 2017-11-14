@@ -9,50 +9,28 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volVectorField;
-    location    "0";
-    object      U;
+    class       dictionary;
+    location    "system";
+    object      setFieldsDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 1 -1 0 0 0 0];
+defaultFieldValues
+(
+    volScalarFieldValue alpha.water 1
+);
 
-internalField   uniform (0 0 0);
-
-boundaryField
-{
-    #includeEtc "caseDicts/setConstraintTypes"
-
-    inlet
+regions
+(
+    boxToCell
     {
-        type            uniformFixedValue;
-        uniformValue    table
+        box (-4 -4 -1) (4 4 0.74);
+        fieldValues
         (
-            (0     (0 0 0))
-            (0.01  (0 -15 0))
-            (100   (0 -15 0))
+            volScalarFieldValue alpha.water 0
         );
-        value           $internalField;
     }
-
-    outlet
-    {
-        type            pressureInletOutletVelocity;
-        inletValue      uniform (0 0 0);
-        value           uniform (0 0 0);
-    }
-
-    outerCylinder
-    {
-        type            noSlip;
-    }
-
-    "propeller.*"
-    {
-        type            movingWallVelocity;
-        value           uniform (0 0 0);
-    }
-}
+);
 
 
 // ************************************************************************* //

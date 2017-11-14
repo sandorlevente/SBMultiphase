@@ -10,20 +10,23 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    location    "0";
-    object      alpha.water;
+    object      nut;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 0 0];
+dimensions      [0 2 -1 0 0 0 0];
 
-internalField   uniform 1;
+internalField   uniform 0;
 
 boundaryField
 {
-    #includeEtc "caseDicts/setConstraintTypes"
+    ".*"
+    {
+        type            nutkWallFunction;
+        value           $internalField;
+    }
 
-    inlet
+    gasInlet
     {
         type            fixedValue;
         value           $internalField;
@@ -33,12 +36,12 @@ boundaryField
     {
         type            inletOutlet;
         inletValue      $internalField;
+        value           $internalField;
     }
 
-    wall
+    "AMI.*"
     {
-        type            zeroGradient;
-        value           $internalField;
+        type            cyclicAMI;
     }
 }
 

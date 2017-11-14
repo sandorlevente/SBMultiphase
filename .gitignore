@@ -29,5 +29,6 @@
 
 .DS*
 
-/DTCHull/constant/polymesh
-/floatingObject/constant/polymesh
+/DTCHull/constant/polyMesh
+/floatingObject/constant/polyMesh
+/mixerVesselAMI/constant/polyMesh
