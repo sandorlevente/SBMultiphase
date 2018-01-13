@@ -1,0 +1,91 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1706                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       polyBoundaryMesh;
+    arch        "LSB;label=32;scalar=64";
+    location    "1e-05/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+10
+(
+    walls
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       1030062;
+    }
+    inlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       1030062;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       1030062;
+    }
+    innerCylinderSmall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       1030062;
+    }
+    innerCylinderSmall_slave
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       1030062;
+    }
+    outerCylinder
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          2369;
+        startFace       1030062;
+    }
+    propellerTip
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          17702;
+        startFace       1032431;
+    }
+    propellerStem1
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          452;
+        startFace       1050133;
+    }
+    propellerStem2
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          652;
+        startFace       1050585;
+    }
+    propellerStem3
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          288;
+        startFace       1051237;
+    }
+)
+
+// ************************************************************************* //

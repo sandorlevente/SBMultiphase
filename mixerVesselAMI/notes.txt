@@ -1,0 +1,7 @@
+blockmesh
+surfaceextract hogy szétszedje az stleket
+snappy
+createbaffles a két külön zónát csinálja meg
+mergeorsplitbaffles?
+rotatingbe kell a rotating henger mint surface, meg a hajócsavar
+kell a shaft része a rotatingen kívül
