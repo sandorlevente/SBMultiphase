@@ -1,0 +1,43 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1706                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v1706-17752679325a
+Arch   : "LSB;label=32;scalar=64"
+Exec   : setFields
+Date   : Nov 09 2017
+Time   : 23:38:17
+Host   : "Explorer"
+PID    : 2595
+Case   : /mnt/d/sandor-v1706/SBMultiphase/oversetFloatingBody/background
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading setFieldsDict
+
+Setting field default values
+    Setting internal values of volScalarField alpha.water
+    Setting internal values of volScalarField zoneID
+
+Setting field region values
+    Adding cells with center within boxes 1((-100 -100 -100) (100 100 0.5368))
+    Setting internal values of volScalarField alpha.water
+    Adding cells with center within boxes 1((0.7 0.8 -100) (100 100 0.75))
+    Setting internal values of volScalarField alpha.water
+    Adding all elements of cellSet c0 ...
+    Setting internal values of volScalarField zoneID
+    Adding all elements of cellSet c1 ...
+    Setting internal values of volScalarField zoneID
+
+End
+

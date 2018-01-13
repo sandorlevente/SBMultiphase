@@ -39,6 +39,12 @@ geometry
             type wall;
         }
     }
+    madafakinboat    // User defined region name
+      {
+          type    searchableBox;       // region defined by bounding box
+          min     (-0.5 -0.5 -0.1);
+          max     (7 0.5 0.7);
+      }
 };
 
 
@@ -60,7 +66,7 @@ castellatedMeshControls
     // Note that this is the number of cells before removing the part which
     // is not 'visible' from the keepPoint. The final number of cells might
     // actually be a lot less.
-    maxGlobalCells 200000;
+    maxGlobalCells 2000000;
 
     // The surface refinement loop might spend lots of iterations refining just a
     // few cells. This setting will cause refinement to stop if <= minimumRefine
@@ -104,7 +110,7 @@ castellatedMeshControls
         hull
         {
             // Surface-wise min and max refinement level
-            level (0 0);
+            level (0 1);
         }
     }
 
@@ -126,6 +132,13 @@ castellatedMeshControls
 
     refinementRegions
     {
+
+      madafakinboat
+           {
+               mode inside;
+               levels ((1.0 4));         // refinement level 4 (1.0 entry ignored) 
+           }
+
     }
 
 

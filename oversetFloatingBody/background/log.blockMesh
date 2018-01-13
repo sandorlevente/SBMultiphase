@@ -1,0 +1,72 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1706                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v1706-17752679325a
+Arch   : "LSB;label=32;scalar=64"
+Exec   : blockMesh
+Date   : Nov 09 2017
+Time   : 23:38:12
+Host   : "Explorer"
+PID    : 2590
+Case   : /mnt/d/sandor-v1706/SBMultiphase/oversetFloatingBody/background
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from
+    "/mnt/d/sandor-v1706/SBMultiphase/oversetFloatingBody/background/system/blockMeshDict"
+Creating block edges
+No non-planar block faces defined
+Creating topology blocks
+Creating topology patches
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 0
+		Number of boundary faces : 6
+		Number of defined boundary faces : 6
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list .
+
+Creating polyMesh from blockMesh
+Creating patches
+Creating cells
+Creating points with scale 1
+    Block 0 cell size :
+        i : 0.0285714285714 .. 0.0285714285714
+        j : 0.0285714285714 .. 0.0285714285714
+        k : 0.0285714285714 .. 0.0285714285714
+
+
+Writing polyMesh with 0 cellZones
+----------------
+Mesh Information
+----------------
+  boundingBox: (0 0 0) (1 1 1)
+  nPoints: 46656
+  nCells: 42875
+  nFaces: 132300
+  nInternalFaces: 124950
+----------------
+Patches
+----------------
+  patch 0 (start: 124950 size: 0) name: oversetPatch
+  patch 1 (start: 124950 size: 6125) name: stationaryWalls
+  patch 2 (start: 131075 size: 1225) name: atmosphere
+
+End
+

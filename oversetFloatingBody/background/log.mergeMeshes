@@ -1,0 +1,94 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1706                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : v1706-17752679325a
+Arch   : "LSB;label=32;scalar=64"
+Exec   : mergeMeshes . ../floatingBody -overwrite
+Date   : Nov 09 2017
+Time   : 23:38:13
+Host   : "Explorer"
+PID    : 2591
+Case   : /mnt/d/sandor-v1706/SBMultiphase/oversetFloatingBody/background
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Master:      "/mnt/d/sandor-v1706/SBMultiphase/oversetFloatingBody/background"  region region0
+mesh to add: "../floatingBody"  region region0
+
+Create Times
+Reading master mesh for time = 0
+Create mesh
+
+Reading mesh to add for time = 0
+Create mesh
+
+Writing combined mesh to 0
+patch names: 
+5
+(
+oversetPatch
+stationaryWalls
+atmosphere
+sides
+floatingObject
+)
+
+patch dicts: 
+5
+(
+
+{
+    type            overset;
+    inGroups        1 ( overset );
+    nFaces          0;
+    startFace       124950;
+}
+
+
+{
+    type            wall;
+    inGroups        1 ( wall );
+    nFaces          6125;
+    startFace       124950;
+}
+
+
+{
+    type            patch;
+    nFaces          1225;
+    startFace       131075;
+}
+
+
+{
+    type            overset;
+    inGroups        1 ( overset );
+    nFaces          3200;
+    startFace       26504;
+}
+
+
+{
+    type            wall;
+    inGroups        1 ( wall );
+    nFaces          1104;
+    startFace       29704;
+}
+
+)
+
+point zone names: 0()
+face zone names: 0()
+cell zone names: 0()
+Copying old patches
+Adding new patches. 
+Reordering processor patches last
+End
+
