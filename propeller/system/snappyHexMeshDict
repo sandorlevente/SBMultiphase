@@ -164,7 +164,7 @@ castellatedMeshControls
     (
         {
             file        "innerCylinderSmall.eMesh";
-            level       2;
+            level       4;
         }
         {
             file        "outerCylinder.eMesh";
@@ -172,19 +172,19 @@ castellatedMeshControls
         }
         {
             file        "propellerTip.eMesh";
-            level       3;
+            level       4;
         }
 //        {
 //            file        "propellerStem1.eMesh";
-//            level       2;
+//            level       4;
 //        }
         {
             file        "propellerStem2.eMesh";
-            level       2;
+            level       4;
         }
         {
             file        "propellerStem3.eMesh";
-            level       2;
+            level       4;
         }
     );
 
@@ -216,19 +216,19 @@ castellatedMeshControls
         }
         propellerTip
         {
-            level       (3 4);
+            level       (4 5);
         }
         propellerStem1
         {
-            level       (3 4);
+            level       (4 4);
         }
         propellerStem2
         {
-            level       (2 2);
+            level       (4 4);
         }
         propellerStem3
         {
-            level       (2 2);
+            level       (4 4);
         }
     }
 
@@ -254,12 +254,12 @@ castellatedMeshControls
         innerCylinder
         {
             mode        inside;
-            levels      ((1E15 2));
+            levels      ((1E15 3));
         }
         innerCylinderSmall
         {
             mode        inside;
-            levels      ((1E15 3));
+            levels      ((1E15 4));
         }
     }
 
@@ -300,7 +300,7 @@ snapControls
 
     //- Maximum number of snapping relaxation iterations. Should stop
     //  before upon reaching a correct mesh.
-    nRelaxIter 3;
+    nRelaxIter 5;
 
     // Feature snapping
 

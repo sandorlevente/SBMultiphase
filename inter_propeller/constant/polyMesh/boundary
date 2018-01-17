@@ -1,0 +1,90 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1712                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       polyBoundaryMesh;
+    arch        "LSB;label=32;scalar=64";
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+9
+(
+    outerCylinder
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          640;
+        startFace       1577172;
+    }
+    propellerTip
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          21767;
+        startFace       1577812;
+    }
+    propellerStem1
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          192;
+        startFace       1599579;
+    }
+    propellerStem2
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          576;
+        startFace       1599771;
+    }
+    propellerStem3
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1536;
+        startFace       1600347;
+    }
+    AMI1
+    {
+        type            cyclicAMI;
+        inGroups        1(cyclicAMI);
+        nFaces          18496;
+        startFace       1601883;
+        matchTolerance  0.0001;
+        transform       noOrdering;
+        neighbourPatch  AMI2;
+    }
+    AMI2
+    {
+        type            cyclicAMI;
+        inGroups        1(cyclicAMI);
+        nFaces          18720;
+        startFace       1620379;
+        matchTolerance  0.0001;
+        transform       noOrdering;
+        neighbourPatch  AMI1;
+    }
+    inlet
+    {
+        type            patch;
+        nFaces          652;
+        startFace       1639099;
+    }
+    outlet
+    {
+        type            patch;
+        nFaces          112;
+        startFace       1639751;
+    }
+)
+
+// ************************************************************************* //

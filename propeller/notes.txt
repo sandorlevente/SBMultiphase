@@ -1,0 +1,7 @@
+block, featureextract, snappy
+
+toposettel szétszedi az stl-t mégjobban. szerintem ezt még solidban szét kéne szedni és elnevezni.
+
+createpatch szétszedi AMIra mint a baffleel.
+
+s
